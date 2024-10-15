@@ -1,0 +1,148 @@
+/* Importação das Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;700&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do Body */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url('https://i.redd.it/tried-to-recreate-the-disco-elysium-style-with-midjourney-ai-v0-io9qexh0o3pa1.png?width=1456&format=png&auto=webp&s=bcf43ea98d7c5f3d06e406014a61d479de75a164') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #0b0b0b;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    cursor: none; /* Esconde o cursor padrão */
+}
+
+/* Estilo Global de Cabeçalhos */
+h1, h2, h3 {
+    color: #e63946;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Dimensões para Títulos */
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2.5rem; }
+
+/* Seções */
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, transparent, #000);
+    transition: background 2s ease;
+}
+
+/* Transições entre Seções de Escuridão */
+.section-darkness.scroll {
+    background: linear-gradient(180deg, #000, #050505);
+}
+
+/* Conteúdo */
+.section .content {
+    z-index: 2;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.section-darkness.scroll .content {
+    opacity: 0.3;
+}
+
+/* Botões Call-to-Action */
+.cta {
+    background-color: #e63946;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.cta:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
+    animation: subtleShake 1.5s ease-in-out infinite;
+}
+
+/* Elementos que são consumidos pela escuridão */
+.consume-on-scroll {
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.consume-on-scroll.scroll {
+    animation: darknessConsume 2s forwards;
+}
+
+/* Animações Gerais */
+@keyframes subtleShake {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(1px, -1px); }
+}
+
+@keyframes darknessConsume {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(50px); }
+}
+
+@keyframes fadeIntoDarkness {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.9); }
+}
+
+p {
+    text-align: center;
+    max-width: 700px;
+}
+
+/* Efeito do mouse com rastro de sangue */
+.trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e63946;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: bloodTrailFade 1.2s ease-out forwards;
+}
+
+@keyframes bloodTrailFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+
+/* Limpeza e otimização das animações */
+.hero {
+    background: url('https://images6.alphacoders.com/108/thumb-1920-1086452.jpg') no-repeat center center/cover;
+    position: relative;
+    z-index: 1;
+    animation: subtleDistort 10s infinite alternate;
+}
+
+@keyframes subtleDistort {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+
+.gallery img {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
